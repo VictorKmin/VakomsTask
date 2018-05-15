@@ -9,4 +9,6 @@ public interface UrlService {
     void save(LongShortUrl longShortUrl);
 
     List<LongShortUrl> findAll();
+
+    LongShortUrl findOne(String id);
 }

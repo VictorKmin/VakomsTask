@@ -14,6 +14,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 public class MainController {
@@ -56,13 +57,25 @@ public class MainController {
         String enteredUrl = longShortUrl.getEnteredUrl();
         String id = util.urlHasher(enteredUrl);
         longShortUrl.setId(id);
-        longShortUrl.setPrettyUrl(util.prettyUrl(enteredUrl.split("/", 4)));
+        longShortUrl.setPrettyUrl(util.prettyUrl(enteredUrl.split("/", 4)) + "$id=" + id);
         urlService.save(longShortUrl);
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public void redirectToUrl(@PathVariable String id, HttpServletResponse resp) throws Exception {
+    @RequestMapping(value = "/{protocol}://{body}$id={id}", method = RequestMethod.GET)
+    public void redirectToUrl(
+            @PathVariable String protocol,
+            @PathVariable String body,
+            @PathVariable String id,
+            HttpServletResponse resp
+    ) {
+
+        try {
+            resp.sendRedirect(urlService.findOne(id).getEnteredUrl());
+        } catch (IOException e) {
+
+        }
+
 
     }
 }

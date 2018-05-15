@@ -30,4 +30,9 @@ public class UrlServiceImpl implements UrlService {
         return urlDAO.findAll();
     }
 
+    @Override
+    public LongShortUrl findOne(String id) {
+        return urlDAO.findOne(id);
+    }
+
 }
