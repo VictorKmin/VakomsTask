@@ -26,13 +26,13 @@
 
         <c:forEach items="${urls}" var="url">
             <ul class="list-group wrap">
-                <li class="list-group-item"><a href="${url.enteredUrl}" target="_blank">${url.prettyUrl}/${url.id}</a>
+                <li class="list-group-item"><a href="${url.enteredUrl}" target="_blank">${pageContext.servletContext.contextPath}/${url.id}</a>
                 </li>
             </ul>
         </c:forEach>
 
         <div>
-            <a href="">git source</a>
+            <a href="">git source </a>
 
         </div>
 

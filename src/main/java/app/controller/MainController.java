@@ -62,10 +62,8 @@ public class MainController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/{protocol}://{body}$id={id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public void redirectToUrl(
-            @PathVariable String protocol,
-            @PathVariable String body,
             @PathVariable String id,
             HttpServletResponse resp
     ) {

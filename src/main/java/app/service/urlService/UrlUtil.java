@@ -17,7 +17,7 @@ public class UrlUtil {
 
 
     public String prettyUrl(String[] splitedUrl) {
-        return splitedUrl[0] + "//" + splitedUrl[1] + splitedUrl[2];
+        return splitedUrl[2];
     }
 
 
