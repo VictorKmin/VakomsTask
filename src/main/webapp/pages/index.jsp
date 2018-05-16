@@ -26,16 +26,15 @@
 
         <c:forEach items="${urls}" var="url">
             <ul class="list-group wrap">
-                <li class="list-group-item"><a href="${url.enteredUrl}" target="_blank">${pageContext.servletContext.contextPath}/${url.id}</a>
+                <li class="list-group-item"><a href="${url.enteredUrl}" target="_blank">http://ec2-35-180-29-224.eu-west-3.compute.amazonaws.com:8080${pageContext.servletContext.contextPath}/${url.id}</a>
                 </li>
             </ul>
         </c:forEach>
 
         <div>
-            <a href="">git source </a>
+            <a href="https://github.com/VictorKmin/TaskProject">git source </a>
 
         </div>
-
 
     </body>
 </html>
